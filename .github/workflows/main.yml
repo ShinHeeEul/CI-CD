@@ -14,9 +14,9 @@ jobs:
   tests:
     if: contains(github.event.comment.body, '테스트 실패')
     runs-on: ubuntu-latest
+    steps:
       # Repository로부터 CI 수행 서버로 코드를 내려받는 Action
       - uses: actions/checkout@v3
-
       - name: Set up JDK 17
         # jdk를 다운 받고 캐싱해주는 Action
         uses: actions/setup-java@v3
@@ -24,9 +24,6 @@ jobs:
         with:
           java-version: 17
           distribution: 'temurin'
-    steps:
-      - name: test
-        run:
 
 
   ci:
