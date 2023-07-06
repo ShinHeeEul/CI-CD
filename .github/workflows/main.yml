@@ -56,7 +56,10 @@ jobs:
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
             
       - name: Gradle 명령 실행을 위한 권한을 부여합니다
-        run: chmod +x gradlew
+        run: |
+          cd ./mytest
+          chmod +x gradlew
+      
 
       - name: Gradle build를 수행합니다
         run: ./gradlew build  
