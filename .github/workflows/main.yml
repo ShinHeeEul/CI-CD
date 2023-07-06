@@ -58,8 +58,6 @@ jobs:
         run: chmod +x gradlew
 
       - name: Gradle build를 수행합니다
-        run: ./gradlew build
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties')}}
-          
+        run: ./gradlew build  
           
           
