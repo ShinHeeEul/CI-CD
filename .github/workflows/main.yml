@@ -4,7 +4,7 @@ name: 'CI'
 
 on:
   push:
-    branches: ['main', 'mytest']
+    branches: ['main', 'mytest', 'mytest2']
   pull_request:
     branches: ['main']
   issue_comment:
