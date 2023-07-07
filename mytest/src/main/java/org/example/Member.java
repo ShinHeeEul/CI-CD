@@ -17,6 +17,7 @@ public class Member {
     }
 
     public String getPhone() {
-        return phone;
+        //return phone;
+        return name;
     }
 }
