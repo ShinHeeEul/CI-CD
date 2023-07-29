@@ -6,10 +6,12 @@ public class Member {
 
     private String name;
     private String phone;
+    private String kkk;
 
     public Member(String name, String phone) {
         this.name = name;
         this.phone = phone;
+        this.kkk = "null";
     }
 
     public String getName() {
