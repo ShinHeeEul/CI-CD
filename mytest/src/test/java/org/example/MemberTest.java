@@ -10,9 +10,9 @@ class MemberTest {
     @Test
     @DisplayName("검증")
     void getName() {
-        member = new Member("희을", "010010");
+        member = new Member("희을", "0102222010");
 
         Assertions.assertEquals(member.getName(), "희을");
-        Assertions.assertEquals(member.getPhone(), "010010");
+        Assertions.assertEquals(member.getPhone(), "0102222010");
     }
 }

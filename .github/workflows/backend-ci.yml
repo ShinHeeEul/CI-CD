@@ -1,0 +1,40 @@
+name: 'CI'
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      # Repository로부터 CI 수행 서버로 코드를 내려받는 Action
+      - uses: actions/checkout@v3
+
+      - name: Set up JDK 17
+        # jdk를 다운 받고 캐싱해주는 Action
+        uses: actions/setup-java@v3
+        # Action에 전달하는 input을 정의하는 곳
+        with:
+          java-version: 17
+          distribution: 'temurin'
+
+
+     # Gradle을 이용해 빌드하고 CI 속도를 높히기 위하여 의존하는 라이브러리들을 캐싱
+      - name: cashing gradle
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+
+      - name : build with gradle
+        # @v2.7.0 버전으로 실행 https://github.com/gradle/gradle-build-action/commit/67421db6bd0bf253fb4bd25b31ebb98943c375e1
+        uses : gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
+        with :
+          argument : build
+          
+          
