@@ -3,7 +3,7 @@ package org.example;
 
 
 public class Member {
-
+    //test
     private String name;
     private String phone;
 
